@@ -1,0 +1,51 @@
+import { PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
+
+type status_auth = 'not-authenticated' | 'authenticated' | 'checking' | 'failed';
+
+interface authState {
+    status?:     status_auth,
+    uid:         string | null,
+    email:       string | null,
+    displayName: string | null,
+    photoURL:    string | null,
+    errorMessage?:string | null,
+}
+
+const initialState: authState = {
+    status:      'checking',
+    uid:         null,
+    email:       null,
+    displayName: null,
+    photoURL:    null,
+    errorMessage: null,
+}
+
+export const authSlice = createSlice({
+    name: 'auth',
+    initialState,
+    reducers: {
+        login: (state, action:PayloadAction<authState>) => {
+            state.status        = 'authenticated';;
+            state.uid           = action.payload.uid;
+            state.email         = action.payload.email;
+            state.displayName   = action.payload.displayName;
+            state.photoURL      = action.payload.photoURL;
+            state.errorMessage  = action.payload.errorMessage || null;
+        },
+        logout: (state, action:PayloadAction<string> )=>{
+            state.status     = 'not-authenticated';
+            state.uid        = null;
+            state.email      = null;
+            state.displayName= null;
+            state.photoURL   = null;
+            state.errorMessage= action.payload || null;
+        }, 
+        checkingCredentials: (state )=>{
+            state.status = 'checking';
+        }
+    }
+})
+
+//Actions creators are generated for each case reducer function
+export const { login, logout, checkingCredentials } = authSlice.actions;
