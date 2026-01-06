@@ -25,5 +25,4 @@ export const fileUpload = async ( file: File ) => {
     }catch (error) {
         throw new Error('Error al enviar la solicitud a la API. Detalles:'+ error);
     }
-
 }

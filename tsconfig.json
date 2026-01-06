@@ -3,5 +3,22 @@
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ]
+  ],
+  /* k configuraciones */
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "composite": true,
+
+    /*k*/
+    "types": [
+      "node",
+      "jest",
+      "@testing-library/jest-dom",
+      "@testing-library/react",
+      "@testing-library/user-event"
+    ],
+    
+    "esModuleInterop": true,
+    "module": "commonJS"
+  },
 }
