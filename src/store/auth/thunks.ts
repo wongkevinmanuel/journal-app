@@ -15,9 +15,11 @@ export const startGoogleSignIn = () => {
         dispatch(checkingCredentials());
         // llama metodos de autenticacion nueva ventana.
         const result = await signInWithGoogle();
+        
+        //console.log({result});
 
         if(!result.ok){
-            //return evita que se ejecute el reso del codigo 
+            //return evita que se ejecute el resto del codigo 
             return dispatch( logout( result.error ) );
         }
 
@@ -62,9 +64,20 @@ export const startLoginWithEmailPassword = (email:string, password: string) => {
         //Proceso asincrono
         const { ok, uid, photoURL, displayName, errorMessage } =
             await loginWithEmailPassword(email, password);
+
         if(!ok){
             return dispatch(logout(errorMessage ?? `Unknown error:thunk.ts/startLoginWithEmailPassword`));
         }
+
+        /*console.log('Disparado en startLoginWithEmailPassword');
+        console.log({
+                uid: uid!,
+                email: email!,
+                displayName: displayName!,
+                photoURL: photoURL ?? null,
+                errorMessage: null,
+        });*/
+
         dispatch(
             login({
                 uid: uid!,

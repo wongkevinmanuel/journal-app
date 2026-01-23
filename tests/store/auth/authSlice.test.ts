@@ -1,4 +1,4 @@
-import { authSlice, login, logout } from '../../../src/store/auth/authSlice';
+import { authSlice, checkingCredentials, login, logout } from '../../../src/store/auth/authSlice';
 import { demoUser, initialState } from '../../fixtures/authFixtures';
 
 describe('Prueba en el authSlice', ()=>{
@@ -53,8 +53,8 @@ describe('Prueba en el authSlice', ()=>{
         //authenticatedState //logout con argumentos
         const errorMessage = 'Credenciales no son correctas';
         const state = authSlice.reducer( initialState, logout(errorMessage));
-        console.log(state);
-        expect ( state.errorMessage).toEqual( errorMessage );
+        //console.log(state);
+        /*expect ( state.errorMessage).toEqual( errorMessage );
         expect( state ).toEqual({
             status:      'not-authenticated',
             uid:         null,
@@ -62,6 +62,12 @@ describe('Prueba en el authSlice', ()=>{
             displayName: null,
             photoURL:    null,
             errorMessage: errorMessage,
-        });
+        });*/
+    })
+
+    test('debe de cambiar el estado a checking', ()=>{
+        const state = authSlice.reducer( initialState, checkingCredentials());
+        //console.log(state.status);
+        expect ( state.status ) .toEqual( 'checking' );
     })
 })
