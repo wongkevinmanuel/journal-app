@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from 'firebase/firestore/lite'
+//import { getEnvironments } from "../helpers";
 
 // Your web app's Firebase configuration
 // DEV/PROD
@@ -25,8 +26,12 @@ const firebaseConfig = {
   measurementId: "G-0EZV5STL3B"
 };
 
-console.log(import.meta.env.DEV);
-console.log(import.meta.env.VITE_K);
+//console.log(import.meta.env.DEV);
+//console.log(import.meta.env.VITE_K);
+//process.env;
+//const env = getEnvironments();
+//console.log(env);
+const originalEnv = process.env;
 
 //Initialize Firebase
 export const FirebaseApp = initializeApp(firebaseConfig);

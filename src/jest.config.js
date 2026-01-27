@@ -1,4 +1,8 @@
 /** @type {import('ts-jest').JestConfigWithTsJest} **/
+
+import { Config } from '@jest/types';
+
+
 export default {
   testEnvironment: "jsdom",
   transform: {
@@ -10,4 +14,6 @@ export default {
   //Especificar patrones de modulos que sean
   // ignorados por la parte de jest
   transformIgnorePatterns: [],
+
+  setupFiles: ["<rootDir>/src/jest.setup.js"],
 };
