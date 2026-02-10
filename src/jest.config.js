@@ -1,7 +1,6 @@
 /** @type {import('ts-jest').JestConfigWithTsJest} **/
-
+/* FErnando codigo
 import { Config } from '@jest/types';
-
 
 export default {
   testEnvironment: "jsdom",
@@ -16,4 +15,10 @@ export default {
   transformIgnorePatterns: [],
 
   setupFiles: ["<rootDir>/src/jest.setup.js"],
-};
+};*/
+
+export default {
+  present: 'ts-jest',
+  testEnvironment: 'jsdom',
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+}

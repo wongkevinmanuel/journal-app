@@ -15,14 +15,12 @@ export const startGoogleSignIn = () => {
         dispatch(checkingCredentials());
         // llama metodos de autenticacion nueva ventana.
         const result = await signInWithGoogle();
-        
-        //console.log({result});
-
+                
         if(!result.ok){
             //return evita que se ejecute el resto del codigo 
             return dispatch( logout( result.error ) );
         }
-
+        
         dispatch(
             login({
                 status: 'authenticated',

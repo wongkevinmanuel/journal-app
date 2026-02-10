@@ -26,14 +26,12 @@ describe('Pruebas en Journal Thunks', () => {
         // }));
          
          //Borrar de firebase
-         const coollectionRef = collection(FirebaseDB, `${uid}/journal/notes`);
-         const docs = await getDocs( coollectionRef);
-         const deletePromises: any = [];
-         docs.forEach( doc => deletePromises.push( deleteDoc( doc.ref)));
-         await Promise.all( deletePromises );
-         console.log(docs);
+            /*const coollectionRef = collection(FirebaseDB, `${uid}/journal/notes`);
+            const docs = await getDocs( coollectionRef);
+            const deletePromises: any = [];
+            docs.forEach( doc => deletePromises.push( deleteDoc( doc.ref)));
+            await Promise.all( deletePromises );*/
+         //console.log(docs);
     });
-
-     
 
 })

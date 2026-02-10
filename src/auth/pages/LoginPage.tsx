@@ -21,6 +21,7 @@ const formValidations = {
 }
 
 export const LoginPage = () => {
+  
   const dispatch = useAppDispatch();
   const { status,errorMessage } = useAppSelector( state => state.auth);
   
@@ -106,7 +107,9 @@ export const LoginPage = () => {
                 variant='outlined'
                 onClick={onGoogleSignIn}
                 startIcon={<Google/>}
-                fullWidth>
+                fullWidth
+                aria-label='google-btn'>
+
                 Ingresar con Google
               </Button>
               <Button 
